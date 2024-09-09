@@ -1,0 +1,14 @@
+{
+  "name": "ds24_api_doka",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./src/app.js"
+  },
+  "author": "MVMmaksM",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdom": "^24.1.1"
+  }
+}
