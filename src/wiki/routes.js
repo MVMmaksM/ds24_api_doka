@@ -496,7 +496,7 @@ module.exports=
     {   
         nameId: "добавление_комментария_или_прикрепление_файла_в_ленту",
         route: "/v2/request/1302289/all/comment",
-        indexTableFieldsFromHtml: 2,
+        indexTableFieldsFromHtml: 3,
         config: {
             method: "POST",
             headers: config.headers,
@@ -751,6 +751,15 @@ module.exports=
         nameId: "получение_настроек_фильтров",
         route: "/v2/request_filter",
         indexTableFieldsFromHtml: 1,
+        config: {
+            method: "GET",
+            headers: config.headers          
+        }
+    },
+    {
+        nameId: "получение_списка_стран_и_кодов_стран_публичный",
+        route: "/v2/public/ref/countries_list",
+        indexTableFieldsFromHtml: 0,
         config: {
             method: "GET",
             headers: config.headers          

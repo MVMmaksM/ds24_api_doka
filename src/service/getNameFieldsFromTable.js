@@ -7,7 +7,7 @@ function getNameFieldsFromTable(document, nameId, indexTableFieldsFromHtml){
     const tableList = result[indexElement+2].getElementsByClassName("table-responsive");
     let table, nameFields = []; 
  
-    table = tableList[indexTableFieldsFromHtml].getElementsByTagName("table");  
+    table = tableList[indexTableFieldsFromHtml]?.getElementsByTagName("table");  
 
     for (i = 0; i < table[0].rows[0].cells.length; i++){
         //ищем индекс колонки описания
