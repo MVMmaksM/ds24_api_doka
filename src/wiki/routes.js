@@ -764,5 +764,23 @@ module.exports=
             method: "GET",
             headers: config.headers          
         }
-    }
+    },
+    {
+        nameId: "получение_списка_домов_на_которые_распространяется_оповещение_в_виде_списка_состояний_по_каждому_дому",
+        route: "/v2/oi/142625/house_state",
+        indexTableFieldsFromHtml: 1,
+        config: {
+            method: "GET",
+            headers: config.headers          
+        }
+    },
+    {
+        nameId: "получение_деталей_табов_для_оповещения",
+        route: "/v2/oi/142625/all",
+        indexTableFieldsFromHtml: 2,
+        config: {
+            method: "GET",
+            headers: config.headers          
+        }
+    }    
 ]
