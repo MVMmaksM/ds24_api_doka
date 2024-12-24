@@ -94,7 +94,7 @@ module.exports=
     },
     {
         nameId: "получение_доступных_причин_обращений_для_указанного_дома",
-        route: "/v2/ref/ess_list_search?house_id=38467",
+        route: "/v2/ref/ess_list_search?house_id=38467&cnt_id=13521",
         indexTableFieldsFromHtml: 1,
         config: {
             method: "GET",
@@ -782,5 +782,5 @@ module.exports=
             method: "GET",
             headers: config.headers          
         }
-    }    
+    }   
 ]
