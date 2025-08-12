@@ -339,8 +339,52 @@ module.exports=
             method: "GET",
             headers: config.headers          
         }
-    },      
-    {   //роту на создание заявки, но в доке ответ из детализации
+    },
+    //РСО
+    {   
+        nameId: "обновление_заявки_рсо",
+        route: "/v2/request_rso/78571",
+        indexTableFieldsFromHtml: 2,
+        config: {
+            method: "PUT",
+            headers: config.headers,
+            body: JSON.stringify(
+            {
+                status_id : 1,               
+                rso_comment: "123",
+                ext_request_id: "123Ф",
+                note: "123",
+            })      
+        }
+    },
+    {
+        nameId: "получение_списка_заявок_рсо",
+        route: "/v2/request_rso?start=1&count=200&date_start=2016-12-31T19:00:00.000Z&date_end=2025-07-31T19:00:00.000Z&owner_id=13521",
+        indexTableFieldsFromHtml: 1,
+        config: {
+            method: "GET",
+            headers: config.headers          
+        }
+    },
+    {
+        nameId: "получение_детализации_заявки_рсо",
+        route: "/v2/request_rso/78571",
+        indexTableFieldsFromHtml: 1,
+        config: {
+            method: "GET",
+            headers: config.headers          
+        }
+    },
+    {
+        nameId: "получение_деталей_табов_для_заявок_рсо",
+        route: "/v2/request_rso/78571/all",
+        indexTableFieldsFromHtml: 2,
+        config: {
+            method: "GET",
+            headers: config.headers          
+        }
+    },
+    {   //роут на создание заявки, но в доке ответ из детализации
         //сверяем доку с детализацией
         nameId: "получение_детализации_по_заявке",
         route: "/v2/request",
@@ -812,5 +856,5 @@ module.exports=
             method: "GET",
             headers: config.headers          
         }
-    }  
+    } 
 ]
