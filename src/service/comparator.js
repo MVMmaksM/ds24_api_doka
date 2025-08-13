@@ -1,3 +1,17 @@
+const compare_method = (method_from_wiki, method_from_config) => {
+    let result;
+
+    if(method_from_wiki.trim().toUpperCase() !== method_from_config.trim().toUpperCase()){
+        result = `Неверно указан метод, в вики: ${method_from_wiki}, должен быть: ${method_from_config}`;
+    }
+
+    if(!method_from_wiki){
+        result = `Не указан метод`;
+    }
+
+    return result;
+}
+
 //есть в ответе, но нет в вики
 const exist_responce_not_wiki = (responce, fields_wiki) =>{
     let result = [];
@@ -103,6 +117,7 @@ const is_diff_type = (type_field, field) => {
 export {
     compare_type,
     exist_wiki_not_responce,
-    exist_responce_not_wiki
+    exist_responce_not_wiki,
+    compare_method
 }
 

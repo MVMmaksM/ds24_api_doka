@@ -2,7 +2,7 @@ import app_config from ".././../config/app.config.js";
 
 const routes = 
 [
-    /*{
+    {
         section_id: "получение_списка_доступных_юридических_лиц",
         path: "/v2/ref/cnt_list",
         index_table_responce: 0,
@@ -190,7 +190,7 @@ const routes =
             method: "GET",
             headers: app_config.headers          
         }
-    },*/
+    },
     {
         section_id: "создание_оповещения",
         path: "/v2/oi",
@@ -212,7 +212,7 @@ const routes =
             })      
         }
     },
-    /*{
+    {
         section_id: "изменение_оповещения_написание_комментария",
         path: "/v2/oi/140238",
         index_table_responce: 2,
@@ -856,7 +856,7 @@ const routes =
             method: "GET",
             headers: app_config.headers          
         }
-    }*/ 
+    }
 ]
 
 export default routes;

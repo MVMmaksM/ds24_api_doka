@@ -1,7 +1,7 @@
 const show_results = ({fields, route, is_diff_type, is_null_type, is_null_description, 
-    is_exist_responce_not_wiki, is_exist_wiki_not_responce, is_double_fields}) => {
+    is_exist_responce_not_wiki, is_exist_wiki_not_responce, is_double_fields, is_method, message_compare_method}) => {
 
-    if(fields?.length != 0){
+    if(fields && fields?.length != 0){
         let message = "\n--------------------------------------------------------";  
 
         message += `\n${route.section_id}`;
@@ -59,10 +59,23 @@ const show_results = ({fields, route, is_diff_type, is_null_type, is_null_descri
         message += "\n--------------------------------------------------------";
         console.log(message);
     }
+
+    if(is_method && message_compare_method){
+        let message = "\n--------------------------------------------------------";  
+
+        message += `\n${route.section_id}`;
+
+        message += `\nРоут: ${route.config.method + " " + route.path}`; 
+        
+        message += `\n${message_compare_method}`;
+        
+        message += "\n--------------------------------------------------------";
+        console.log(message);
+    }
 }
 
 const show_error_responce = ({route, data}) => {
-    let message = "-------------------------ERROR---------------------------";
+    let message = "\n-------------------------ERROR---------------------------";
 
     message += `\n${route.section_id}`;
     message += `\nРоут: ${route.config.method + " " + route.path}`;

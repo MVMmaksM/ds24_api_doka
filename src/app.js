@@ -4,17 +4,22 @@ import fetch_api from "./service/fetch_api.js";
 import routes from "./wiki/routes.js";
 import get_null_description from "./service/get_null_description.js";
 import get_null_type from "./service/get_null_type.js";
-import { compare_type, exist_wiki_not_responce, exist_responce_not_wiki } from "./service/comparator.js";
+import { compare_type, exist_wiki_not_responce, exist_responce_not_wiki, compare_method } from "./service/comparator.js";
 import  { show_results, show_error_responce } from "./service/show_result.js";
 import get_double_fields from "./service/get_double_fields.js";
 import app_config from "../config/app.config.js";
+import get_method from "./service/get_method.js";
 
 async function getDiffWikiRoutes() {  
     //получаем window.document wiki       
     const document = await get_document(app_config.url_wiki);
    
     //проходимся по всем роутам из вики
-    for(const route of routes){      
+    for(const route of routes){    
+        //сравнение методов
+        const method = get_method(document, route.section_id);        
+        const result_compare_method = compare_method(method, route.config.method);     
+
         //получаем название полей таблицы ответа из вики
         const fields = get_fields_table(document, route.section_id, route.index_table_responce);
         //получаем список задвоенных полей
@@ -46,7 +51,9 @@ async function getDiffWikiRoutes() {
         }
         else{            
             show_error_responce({route: route, data: data});
-        }      
+        } 
+       
+        show_results({route: route, is_method: 1, message_compare_method: result_compare_method});
     };
 }
 
